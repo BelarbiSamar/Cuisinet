@@ -7,15 +7,16 @@ $error="";
 $livraison = new livraison();
 $livraisonC= new livraisonC();
 if(!empty($_POST["idLivraison"]) && !empty($_POST["idCommande"]) && !empty($_POST["idLivreur"]) && !empty($_POST["adresseLivraison"]) 
-&& !empty($_POST["dureeLivraison"]))
+&& !empty($_POST["dureeLivraison"])&& !empty($_POST["idClient"]))
 {if(isset($_POST["idLivraison"]) && isset($_POST["idCommande"]) && isset($_POST["idLivreur"]) && isset($_POST["adresseLivraison"]) 
-&& isset($_POST["dureeLivraison"]) && isset($_POST["Ajouter"]) )
+&& isset($_POST["dureeLivraison"]) && isset($_POST["idClient"]) && isset($_POST["Ajouter"]) )
 {
     $livraison->idLivraison=$_POST['idLivraison'];
     $livraison->idCommande=$_POST['idCommande'];
     $livraison->idLivreur=$_POST['idLivreur'];
     $livraison->adresseLivraison=$_POST['adresseLivraison'];
     $livraison->dureeLivraison=$_POST['dureeLivraison'];
+    $livraison->idClient=$_POST['idClient'];
     
     
 

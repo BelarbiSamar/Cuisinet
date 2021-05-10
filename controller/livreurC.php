@@ -6,7 +6,7 @@ class livreurC{
 
     function ajouterlivreur($livreur){
        
-        $sql="insert into livreur (idLivreur,telLivreur,nom,prenom,telLivreur)
+        $sql="insert into livreur (idLivreur,telLivreur,nom,prenom,dispo)
         values (:idLivreur,:telLivreur,:nom,:prenom,:dispo)";
         $db = config::getConnexion();
         try{
@@ -78,8 +78,8 @@ class livreurC{
             $query=$db->prepare($sql);
             $query->execute();
             
-            $Clients=$query->fetch();
-            return $Clients;
+            $livreur=$query->fetch();
+            return $livreur;
             }
             catch (Exception $e){
             die('Erreur: '.$e->getMessage());
@@ -146,7 +146,7 @@ function afficherlivreur(){
     
             }
             catch(Exception $e){
-                die ('erreur chercherclient: '.$e->getMessage());
+                die ('erreur chercherlivreur: '.$e->getMessage());
     
             }
         }

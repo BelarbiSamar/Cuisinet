@@ -3,31 +3,31 @@ include 'C:/wamp/www/aouididi/controller/CarteC.php';
 include_once 'C:/wamp/www/aouididi/model/Carte.php';
 
 
-$CarteC = new CarteC();
+$produitC = new produitC();
 $error = "";
 
 if (
   
-  isset($_POST["idCarte"]) && isset($_POST["recupere"])
+  isset($_POST["idProduit"]) && isset($_POST["recupere"])
 
 ){
 if (
   
-  !empty($_POST["idCarte"]) 
+  !empty($_POST["idProduit"]) 
   
 ) {
-$Carte = new Carte(
-  $_POST["idCarte"],
-  $_POST["IdClient"],
-$_POST["type"],
-$_POST["nbPoints"],
-$_POST["DateEm"],
-$_POST["DateExp"]
+$produit = new produit(
+  $_POST["idProduit"],
+  $_POST["nomPrdt"],
+$_POST["type_produit"],
+$_POST["prix"],
+$_POST["dateExpr"],
+$_POST["quantite"]
 );
 
 
 
-$Carte = $CarteC->recupererCarte($_POST["idCarte"]);
+$produit = $produitC->recupererproduit($_POST["idProduit"]);
 
 
 
@@ -93,11 +93,11 @@ $error = "Missing information";
           <div class="profile-desc">
             <div class="profile-pic">
               <div class="count-indicator">
-                <img class="img-xs rounded-circle " src="assets/images/faces/face15.jpg" alt="">
+                <img class="img-xs rounded-circle " src="assets/images/faces/melek.png" alt="">
                 <span class="count bg-success"></span>
               </div>
               <div class="profile-name">
-                <h5 class="mb-0 font-weight-normal">Amine Aouididi</h5>
+                <h5 class="mb-0 font-weight-normal">melekboussif</h5>
                 <span></span>
           </div>
       </div>
@@ -155,14 +155,14 @@ $error = "Missing information";
             <span class="menu-icon">
               <i class="mdi mdi-laptop"></i>
             </span>
-            <span class="menu-title">Gestion des clients</span>
+            <span class="menu-title">Gestion des promotion</span>
             <i class="menu-arrow"></i>
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouter client.php">Ajouter Client</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifier client.php">Modifier Client</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficher client.php">Consulter Clients</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouter client.php">Ajouter promotion</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifier client.php">Modifier promotion</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficher client.php">Consulter promotion</a></li>
             </ul>
           </div>
         </li>
@@ -173,14 +173,14 @@ $error = "Missing information";
             <span class="menu-icon">
               <i class="mdi mdi-laptop"></i>
             </span>
-            <span class="menu-title">Gestion des Cartes</span>
+            <span class="menu-title">Gestion des produit</span>
             <i class="menu-arrow"></i>
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouter carte.php">Ajouter Carte</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifier carte.php">Modifier Carte</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficher carte.php">Consulter Cartes</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouter carte.php">Ajouter produit</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifier carte.php">Modifier produit</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficher carte.php">Consulter produit</a></li>
             </ul>
           </div>
         </li>
@@ -305,8 +305,8 @@ $error = "Missing information";
             <li class="nav-item dropdown">
               <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                 <div class="navbar-profile">
-                  <img class="img-xs rounded-circle" src="assets/images/faces/face15.jpg" alt="">
-                  <p class="mb-0 d-none d-sm-block navbar-profile-name">Amine Aouididi</p>
+                  <img class="img-xs rounded-circle" src="assets/images/faces/melek.png" alt="">
+                  <p class="mb-0 d-none d-sm-block navbar-profile-name">melekboussif</p>
                   <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                 </div>
               </a>
@@ -376,17 +376,17 @@ $error = "Missing information";
            </tr>
             
 
-             <td>Id Carte : </td><td><input type="text" name="idCarte" id="idCarte" class="form-control" value = "<?php echo $Carte['idCarte']; ?>"> </td>
+             <td>idProduit : </td><td><input type="text" name="idProduit" id="idProduit" class="form-control" value = "<?php echo $produit['idProduit']; ?>"> </td>
              </tr>
-             <tr><td>Id Client : </td><td><input type="text" name="IdClient" id="IdClient" class="form-control" value = "<?php echo $Carte['IdClient']; ?>" > </td>
+             <tr><td>nomPrdt : </td><td><input type="text" name="nomPrdt" id="nomPrdt" class="form-control" value = "<?php echo $produit['nomPrdt']; ?>" > </td>
              </tr>
-             <tr><td>type : </td><td><input type="text" name="type" id="type" class="form-control" value = "<?php echo $Carte['type']; ?>"> </td>
+             <tr><td>type_produit : </td><td><input type="text" name="type_produit" id="type_produit" class="form-control" value = "<?php echo $produit['type_produit']; ?>"> </td>
              </tr>
-              <tr><td>nombre de points : </td><td><input type="text" name="nbPoints" id="nbPoints" class="form-control"  value = "<?php echo $Carte['nbPoints']; ?>"> </td>
+              <tr><td> prix : </td><td><input type="text" name="prix" id="prix" class="form-control"  value = "<?php echo $produit['prix']; ?>"> </td>
              </tr>
-             <tr><td>date d'émmission : </td><td><input type="date" name="DateEm" id="DateEm" class="form-control" value = "<?php echo $Carte['DateEm']; ?>" > </td></tr>
+             <tr><td>dateExpr : </td><td><input type="text" name="dateExpr" id="dateExpr" class="form-control" value = "<?php echo $produit['dateExpr']; ?>" > </td></tr>
              </tr>
-             <tr><td>date d'expiration : </td><td><input type="date" name="DateExp" id="DateExp" class="form-control"  value = "<?php echo $Carte['DateExp']; ?>"> </td></tr>
+             <tr><td>quantite : </td><td><input type="text" name="quantite" id="quantite" class="form-control"  value = "<?php echo $produit['quantite']; ?>"> </td></tr>
              </tr>
                         
               <tr>
@@ -414,7 +414,7 @@ $error = "Missing information";
  if(isset($_POST['Modifier']))
  {
    
-   $CarteC->modifierCarte($_POST["idCarte"]);
+   $produitC->modifierproduit($_POST["idProduit"]);
  
  }
  

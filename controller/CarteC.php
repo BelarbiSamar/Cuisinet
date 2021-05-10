@@ -111,6 +111,41 @@ class produitC{
             die('Erreur: '.$e->getMessage());
             }
             }
+
+            function chercherClient($chercher,$champs) {
+                $db=config::getConnexion();
+                $sql="select * from produit where $champs like '%$chercher%'  ";
+                try
+                {
+                    $liste=$db->query($sql);
+                    return $liste;
+        
+                }
+                catch(Exception $e){
+                    die ('erreur chercherclient: '.$e->getMessage());
+        
+                }
+            }
+    
+    
+    
+    
+    
+    
+            function TrierClient($champs,$order) {
+                $db=config::getConnexion();
+                $sql="select * from produit order By $champs $order  ";
+                try
+                {
+                    $liste=$db->query($sql);
+                    return $liste;
+        
+                }
+                catch(Exception $e){
+                    die ('erreur chercherclient: '.$e->getMessage());
+        
+                }
+            }
     
     
     

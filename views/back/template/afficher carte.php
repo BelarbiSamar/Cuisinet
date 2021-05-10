@@ -3,7 +3,14 @@ include 'C:/wamp/www/aouididi/controller/CarteC.php';
 include_once 'C:/wamp/www/aouididi/model/Carte.php';
 
 $produitC=new produitC();
-	$listeproduit=$produitC->afficherproduit();
+if(isset($_GET['trier']))
+{
+  $listeproduit=$produitC->TrierClient($_GET['champs'],$_GET['ordre']);
+}else if(isset($_GET['chercher'])&&isset($_GET['search'])){
+  $listeproduit=$produitC->chercherClient($_GET['chercher'],$_GET['champs'],$_GET['ordre']);
+}else{
+$listeproduit=$produitC->afficherproduit();
+}
 ?>
 <html lang="en"><head>
   <!-- Required meta tags -->
@@ -326,7 +333,7 @@ $produitC=new produitC();
                     <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search for..." name="chercher">
                    <span class="input-group-btn">
-                   <button class="btn btn-search" type="submit"><i class="fa fa-search fa-fw"></i> Search</button>
+                   <button class="btn btn-search" type="submit" name="search"><i class="fa fa-search fa-fw"></i> Search</button>
                    </span>
                   </div>
                 </td>
@@ -353,6 +360,7 @@ $produitC=new produitC();
                   <div style="margin-left: 15px;">
                  <input type="radio" name="ordre" value="DESC">
                  <label for="huey">ordre décroissant</label>
+                 <button class="btn btn-search" type="submit" name="trier"><i class="fa fa-search fa-fw"></i> trier</button>
                  </div>
                  </td>
                </form>

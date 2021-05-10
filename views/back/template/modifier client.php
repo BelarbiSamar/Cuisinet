@@ -4,26 +4,25 @@ include 'c:/wamp/www/aouididi/controller/ClientC.php';
 include_once 'C:/wamp/www/aouididi/model/Client.php';
 
 
-$ClientC = new ClientC();
+$promotionC = new promotionC();
 $error = "";
 
-if(!empty($_POST["id"]) )
+if(!empty($_POST["idPromo"]) )
 {
-if(isset($_POST["id"])&& isset($_POST["recupere"])  )
+if(isset($_POST["idPromo"])&& isset($_POST["recupere"])  )
 {
-$Client = new Client(
-  $_POST["id"],
-  $_POST["cin"],
-$_POST["nom"],
-$_POST["prenom"],
-$_POST["email"],
-$_POST["adresse"],
-$_POST["dateNaiss"]
+$promotion = new promotion(
+  $_POST["idPromo"],
+  $_POST["idProduit"],
+$_POST["dureePromo"],
+$_POST["pourcentage"],
+$_POST["idCarte"]
+
 );
 
 
 
-$Client = $ClientC->recupererClient($_POST["id"]);
+$promotion = $promotionC->recupererClient($_POST["idPromo"]);
 
 
 
@@ -85,11 +84,11 @@ $error = "Missing information";
           <div class="profile-desc">
             <div class="profile-pic">
               <div class="count-indicator">
-                <img class="img-xs rounded-circle " src="assets/images/faces/face15.jpg" alt="">
+                <img class="img-xs rounded-circle " src="assets/images/faces/melek.png" alt="">
                 <span class="count bg-success"></span>
               </div>
               <div class="profile-name">
-                <h5 class="mb-0 font-weight-normal">Amine Aouididi</h5>
+                <h5 class="mb-0 font-weight-normal">melekboussif</h5>
                 <span></span>
           </div>
       </div>
@@ -147,14 +146,14 @@ $error = "Missing information";
             <span class="menu-icon">
               <i class="mdi mdi-laptop"></i>
             </span>
-            <span class="menu-title">Gestion des clients</span>
+            <span class="menu-title">Gestion des promotion</span>
             <i class="menu-arrow"></i>
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouter client.php">Ajouter Client</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifier client.php">Modifier Client</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficher client.php">Consulter Clients</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouter client.php">Ajouter promotion</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifier client.php">Modifier promotion</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficher client.php">Consulter promotion</a></li>
             </ul>
           </div>
         </li>
@@ -165,14 +164,14 @@ $error = "Missing information";
             <span class="menu-icon">
               <i class="mdi mdi-laptop"></i>
             </span>
-            <span class="menu-title">Gestion des Cartes</span>
+            <span class="menu-title">Gestion des produit</span>
             <i class="menu-arrow"></i>
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouter carte.php">Ajouter Carte</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifier carte.php">Modifier Carte</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficher carte.php">Consulter Cartes</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouter carte.php">Ajouter produit</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifier carte.php">Modifier produit</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficher carte.php">Consulter produit</a></li>
             </ul>
           </div>
         </li>
@@ -297,8 +296,8 @@ $error = "Missing information";
             <li class="nav-item dropdown">
               <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                 <div class="navbar-profile">
-                  <img class="img-xs rounded-circle" src="assets/images/faces/face15.jpg" alt="">
-                  <p class="mb-0 d-none d-sm-block navbar-profile-name">Amine Aouididi</p>
+                  <img class="img-xs rounded-circle" src="assets/images/faces/melek.png" alt="">
+                  <p class="mb-0 d-none d-sm-block navbar-profile-name">melekboussif</p>
                   <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                 </div>
               </a>
@@ -371,21 +370,18 @@ $error = "Missing information";
                      </tr>
                    
                     
-                       <td>Id : </td><td><input type="text" name="id" id="id" class="form-control" value = "<?php echo $Client['id']; ?>"> </td>
+                       <td>IdPromo : </td><td><input type="text" name="idPromo" id="idPromo" class="form-control" value = "<?php echo $promotion['idPromo']; ?>"> </td>
  
                       </tr>
-                       <tr><td>cin : </td><td><input type="text" name="cin" id="cin" class="form-control" value = "<?php echo $Client['cin']; ?>"> </td>
+                       <tr><td>idProduit : </td><td><input type="text" name="idProduit" id="idProduit" class="form-control" value = "<?php echo $promotion['idProduit']; ?>"> </td>
                        </tr>
-                        <tr><td>nom : </td><td><input type="text" name="nom" id="nom" class="form-control" value = "<?php echo $Client['nom']; ?>" > </td>
+                        <tr><td>dureePromo : </td><td><input type="text" name="dureePromo" id="dureePromo" class="form-control" value = "<?php echo $promotion['dureePromo']; ?>" > </td>
                        </tr>
-                       <tr><td>prenom : </td><td><input type="text" name="prenom" id="prenom" class="form-control"  value = "<?php echo $Client['prenom']; ?>"> </td>
+                       <tr><td>pourcentage : </td><td><input type="text" name="pourcentage" id="pourcentage" class="form-control"  value = "<?php echo $promotion['pourcentage']; ?>"> </td>
                        </tr>
-                       <tr><td>email : </td><td><input type="text" name="email" id="email" class="form-control" value = "<?php echo $Client['email']; ?>" > </td>
+                       <tr><td>idCarte : </td><td><input type="text" name="idCarte" id="idCarte" class="form-control" value = "<?php echo $promotion['idCarte']; ?>" > </td>
                        </tr>
-                       <tr><td>adresse : </td><td><input type="text" name="adresse" id="adresse" class="form-control"  value = "<?php echo $Client['adresse']; ?>"> </td>
-                       </tr>
-                       <tr><td>Date de naissance : </td><td><input type="date" name="dateNaiss" id="dateNaiss" class="form-control" value = "<?php echo $Client['dateNaiss']; ?>" > </td></tr>
-                     
+                       
                        <tr>
                             <td colspan="2">  <button type="submit" class="form-control" name="Modifier">
                                                         modifier
@@ -413,7 +409,7 @@ $error = "Missing information";
 if(isset($_POST['Modifier']))
 {
   
-  $ClientC->modifierClient($_POST["id"]);
+  $promotionC->modifierpromotion($_POST["idPromo"]);
 
 }
 

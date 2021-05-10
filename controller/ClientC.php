@@ -44,29 +44,26 @@ class promotionC{
 
 
 
-    function modifierp($id){
-                  $clients=new Client;         
-            $sql='UPDATE Clients SET
-            cin = :cin,  nom = :nom,   prenom = :prenom,    email = :email,     adresse = :adresse,
-            dateNaiss = :dateNaiss
-            WHERE id = :id';
+    function modifierpromotion($idPromo){
+                  $promotion=new promotion;         
+            $sql='UPDATE promotion SET
+            idPromo = :idPromo,  idProduit = :idProduit,   dureePromo = :dureePromo,    pourcentage = :pourcentage,     idCarte = :idCarte
+           
+            WHERE idPromo = :idPromo';
 		$db = config::getConnexion();
         try{
             $query = $db->prepare($sql);
-            $id=$_POST['id'];
-		    $cin=$_POST['cin'];
-		    $nom=$_POST['nom'];
-            $prenom=$_POST['prenom'];
-            $email=$_POST['email'];
-            $adresse=$_POST['adresse'];
-            $dateNaiss=$_POST['dateNaiss'];
-		$query->bindValue(':id',$id);
-		$query->bindValue(':cin',$cin);
-		$query->bindValue(':nom',$nom);
-		$query->bindValue(':prenom',$prenom);
-		$query->bindValue(':email',$email);
-		$query->bindValue(':adresse',$adresse);
-		$query->bindValue(':dateNaiss',$dateNaiss);
+            $idPromo=$_POST['idPromo'];
+		    $idProduit=$_POST['idProduit'];
+		    $dureePromo=$_POST['dureePromo'];
+            $pourcentage=$_POST['pourcentage'];
+            $idCarte=$_POST['idCarte'];
+		$query->bindValue(':idPromo',$idPromo);
+		$query->bindValue(':idProduit',$idProduit);
+		$query->bindValue(':dureePromo',$dureePromo);
+		$query->bindValue(':pourcentage',$pourcentage);
+		$query->bindValue(':idCarte',$idCarte);
+	
 		
         $query->execute();
         } catch (PDOException $e) {

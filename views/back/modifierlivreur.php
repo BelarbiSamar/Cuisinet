@@ -19,7 +19,7 @@ if (
 ) {
 $livreur = new livreur(
   $_POST["idLivreur"],
-  $_POST["cin"],
+  $_POST["telLivreur"],
 $_POST["nom"],
 $_POST["prenom"],
 $_POST["dispo"]

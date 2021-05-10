@@ -12,12 +12,11 @@ if(!empty($_POST["idLivreur"]) && !empty($_POST["telLivreur"]) && !empty($_POST[
 if(isset($_POST["idLivreur"]) && isset($_POST["telLivreur"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) 
 && isset($_POST["dispo"]) && isset($_POST["Ajouter"]))
 {
-    $livreur->id=$_POST['idLivreur'];
-    $livreur->cin=$_POST['telLivreur'];
+    $livreur->idLivreur=$_POST['idLivreur'];
+    $livreur->telLivreur=$_POST['telLivreur'];
     $livreur->nom=$_POST['nom'];
     $livreur->prenom=$_POST['prenom'];
-    $livreur->email=$_POST['email'];
-    $livreur->adresse=$_POST['dispo'];
+    $livreur->dispo=$_POST['dispo'];
     
     
    $livreurC->ajouterlivreur($livreur);
@@ -351,9 +350,9 @@ if(isset($_POST["idLivreur"]) && isset($_POST["telLivreur"]) && isset($_POST["no
                       <!-- top tiles -->
                      <table class="table">
                        
-                     <span id="error1"></span>
+                     <div id="error"> <?php echo "$error"?></div>
                     
-                    <form id="formajout" name="formajout" class="form" action="" method="POST" >
+                     <form name="formajout" id="formajout" class="form" action="ajouterlivreur.php" method="POST" >
                        <tr>
                        <td colspan="2">
                         <input type="hidden" name="photo" >
@@ -377,7 +376,7 @@ if(isset($_POST["idLivreur"]) && isset($_POST["telLivreur"]) && isset($_POST["no
                                                     </button></td>
                         </tr>
                         <tr>
-                            <td colspan="2">  <button type="submit" class="form-control" name="verif" onclick=" controllivreur();">
+                            <td colspan="2">  <button type="submit" class="form-control" name="verif">
                                                         verifier les données
                                                     </button></td>
                         </tr>

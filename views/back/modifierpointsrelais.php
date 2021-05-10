@@ -394,15 +394,15 @@ $error = "Missing information";
            </tr>
             
 
-             <td>idLivraison : </td><td><input type="text" name="idLivraison" id="idLivraison" class="form-control"> </td>
+             <td>idRelais: </td><td><input type="text" name="idRelais  " id="idRelais  " class="form-control"> </td>
              </tr>
-             <tr><td>idCommande : </td><td><input type="text" name="idCommande" id="idCommande" class="form-control"  > </td>
+             <tr><td>adresseRel : </td><td><input type="text" name="adresseRel" id="adresseRel" class="form-control"  > </td>
              </tr>
-             <tr><td>idLivreur : </td><td><input type="text" name="idLivreur" id="idLivreur" class="form-control" > </td>
+             <tr><td>etatRel : </td><td><input type="text" name="etatRel" id="etatRel" class="form-control" > </td>
              </tr>
-              <tr><td>adresseLivraison : </td><td><input type="text" name="adresseLivraison" id="adresseLivraison" class="form-control" > </td>
+              <tr><td>horaire : </td><td><input type="text" name="horaire" id="horaire" class="form-control" > </td>
              </tr>
-             <tr><td>dureeLivraison : </td><td><input type="text" name="dureeLivraison" id="dureeLivraison" class="form-control"  > </td></tr>
+             <tr><td>conges : </td><td><input type="text" name="conges" id="conges" class="form-control"  > </td></tr>
              </tr>
              
                         
@@ -431,7 +431,7 @@ $error = "Missing information";
  if(isset($_POST['Modifier']))
  {
    
-   $livraisonC->modifierlivraison($_POST["idLivraison"]);
+   $pointsrelaisC->modifierpointsrelais($_POST["idRelais"]);
  
  }
  

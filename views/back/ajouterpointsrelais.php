@@ -352,7 +352,7 @@ if(!empty($_POST["idRelais"]) && !empty($_POST["adresseRel"]) && !empty($_POST["
            <div id="error"> <?php echo "$error"?></div>
 
               
-             <form name="formajout" id="formajout" class="form" action="ajouterlivraison.php" method="POST" >
+             <form name="formajout" id="formajout" class="form" action="ajouterpointsrelais.php" method="POST" >
              <tr>
              <td colspan="2">
               <input type="hidden" name="photo" >

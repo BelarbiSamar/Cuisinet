@@ -73,7 +73,7 @@ $query=$db->prepare($sql);
 $query->execute();
 
 $Carte=$query->fetch();
-return $Carte;
+return $pointsrelais;
 }
 catch (Exception $e){
 die('Erreur: '.$e->getMessage());

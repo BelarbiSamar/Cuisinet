@@ -146,9 +146,9 @@ if(!empty($_POST["idLivraison"]) && !empty($_POST["idCommande"]) && !empty($_POS
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="Ajouterlivraisons.php">Ajouterlivraisons</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifierlivraisons.php">modifierlivraisons</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficherlivraisons.php">Consulterlivraisons</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterlivraison.php">Ajouterlivraisons</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierlivraison.php">modifierlivraisons</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherlivraison.php">Consulterlivraisons</a></li>
             </ul>
           </div>
         </li>
@@ -164,9 +164,9 @@ if(!empty($_POST["idLivraison"]) && !empty($_POST["idCommande"]) && !empty($_POS
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouterPoints relais.php">AjouterPoints relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifierPoints relais.php">ModifierPoints relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficherPoints relais.php">ConsulterPoints relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterpointsrelais.php">AjouterPoints relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierpointsrelais.php">ModifierPoints relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherpointsrelais.php">ConsulterPoints relais</a></li>
             </ul>
           </div>
         </li>

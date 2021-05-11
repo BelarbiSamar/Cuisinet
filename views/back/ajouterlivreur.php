@@ -144,7 +144,7 @@ if(isset($_POST["idLivreur"]) && isset($_POST["telLivreur"]) && isset($_POST["no
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="Ajouterlivraisons.php">Ajouterlivraisons</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterlivraisons.php">Ajouterlivraisons</a></li>
               <li class="nav-item"> <a class="nav-link" href="modifierlivraisons.php">modifierlivraisons</a></li>
               <li class="nav-item"> <a class="nav-link" href="afficherlivraisons.php">Consulterlivraisons</a></li>
             </ul>

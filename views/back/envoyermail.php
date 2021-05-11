@@ -1,4 +1,47 @@
-<html lang="en"><head>
+<?php 
+		if(isset($_POST['sendmail'])) {
+			require 'PHPMailerAutoload.php';
+			$mail = new PHPMailer;
+
+			 //$mail->SMTPDebug = 4;                               // Enable verbose debug output
+
+			$mail->isSMTP();                                      // Set mailer to use SMTP
+			$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+			$mail->SMTPAuth = true;                               // Enable SMTP authentication
+			$mail->Username = 'mohamedamineaouididi08@gmail.com';                 // SMTP username
+			$mail->Password = 'badboys123';                           // SMTP password
+			$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, ssl also accepted
+			$mail->Port = 587;                                    // TCP port to connect to
+			
+			$mail->setFrom('mohamedamineaouididi08@gmail.com', 'mohamed amine aouididi');
+			$mail->addAddress($_POST['email']);     // Add a recipient
+
+			//$mail->addReplyTo(EMAIL);
+			// print_r($_FILES['file']); exit;
+			for ($i=0; $i < count($_FILES['file']['tmp_name']) ; $i++) { 
+				$mail->addAttachment($_FILES['file']['tmp_name'][$i], $_FILES['file']['name'][$i]);    // Optional name
+			}
+			$mail->isHTML(true);                                  // Set email format to HTML
+
+			$mail->Subject = $_POST['subject'];
+			$mail->Body    = $_POST['message'];
+			$mail->AltBody = $_POST['message'];
+			if(!$mail->send()) {
+			    echo 'Message could not be sent.';
+			    echo 'Mailer Error: ' . $mail->ErrorInfo;
+			} else {
+			    echo 'Message has been sent';
+			}
+		}
+	 ?>
+   
+   
+   
+   
+   
+   
+   
+   <html lang="en"><head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -100,9 +143,9 @@
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="Ajouterlivraison.html">Ajouter livraison</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifierlivraison.html">modifier livraison</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficherlivraison.html">Consulter livraison</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterlivraison.php">Ajouter livraison</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierlivraison.php">modifier livraison</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherlivraison.php">Consulter livraison</a></li>
             </ul>
           </div>
         </li>
@@ -118,9 +161,9 @@
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouterpointsrelais.html">Ajouter points relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifierpointsrelais.html">Modifier points relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficherpointsrelais.html">Consulter points relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterpointsrelais.php">Ajouter points relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierpointsrelais.php">Modifier points relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherpointsrelais.php">Consulter points relais</a></li>
             </ul>
           </div>
         </li>
@@ -135,9 +178,9 @@
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouterlivreur.html">Ajouter livreur</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifierlivreur.html">Modifier livreur</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficherlivreur.html">Consulter livraison</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterlivreur.php">Ajouter livreur</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierlivreur.php">Modifier livreur</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherlivreur.php">Consulter livraison</a></li>
             </ul>
           </div>
         </li>
@@ -323,10 +366,53 @@
             <div class="col-12 grid-margin stretch-card">
               <div class="card corona-gradient-card">
                 <div class="card-body py-0 px-0 px-sm-3">
-                  
+                </div>
                 </div>
               </div>
             </div>
+            <div class="right_col" role="main" >
+                      <!-- top tiles -->
+                     
+                     
+                     
+                     <form role="form" method="post" enctype="multipart/form-data">
+        	<div class="row">
+                <div class="col-sm-9 form-group">
+                    <label for="email">To Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" maxlength="50">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-9 form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" class="form-control" id="subject" name="subject" value="Test Mail with attachments" maxlength="50">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-9 form-group">
+                    <label for="name">Message:</label>
+                    <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Your Message Here" maxlength="6000" rows="4">Test mail using PHPMailer</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-9 form-group">
+                    <label for="name">File:</label>
+                    <input name="file[]" multiple="multiple" class="form-control" type="file" id="file">
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-sm-9 form-group">
+                    <button type="submit" name="sendmail" class="form-control">Send</button>
+                </div>
+            </div>
+            
+        </form>
+                     
+                     
+        </div>
+
           </div>
           
                     </div>

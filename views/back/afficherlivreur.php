@@ -128,7 +128,7 @@ $listelivreur=$livreurC->afficherlivreur();
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="Ajouterlivraison.php">Ajouter livraison</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterlivraison.php">Ajouter livraison</a></li>
               <li class="nav-item"> <a class="nav-link" href="modifierlivraison.php">modifier livraison</a></li>
               <li class="nav-item"> <a class="nav-link" href="afficherlivraison.php">Consulter livraison</a></li>
             </ul>
@@ -416,10 +416,10 @@ $listelivreur=$livreurC->afficherlivreur();
               ?>
               <tr>
                   <td><?php echo $livreur['idLivreur']; ?></td>
-              <td><?php echo $livreur['telLivreur']; ?>  </td>
+              <td><?php echo $livreur['telLivr']; ?>  </td>
               <td><?php echo $livreur['nom']; ?></td>
                <td><?php echo $livreur['prenom']; ?></td>
-               <td><?php echo $livreur['dispo']; ?></td>
+               <td><?php echo $livreur['disponible']; ?></td>
               
                
                   

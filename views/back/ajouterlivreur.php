@@ -1,31 +1,28 @@
-
 <?php
 
 include 'C:/wamp64/www/Cuisinet/controller/livreurC.php';
-require_once 'C:/wamp64/www/Cuisinet/model/livreur.php';
+include_once 'C:/wamp64/www/Cuisinet/model/livreur.php';
+
 $error="";
-$livreur = new livreur();
-$livreurC= new livreurC();
-if(!empty($_POST["idLivreur"]) && !empty($_POST["telLivreur"]) && !empty($_POST["nom"]) && !empty($_POST["prenom"]) 
-&& !empty($_POST["dispo"]))
+$livreur=new livreur();
+$livreurC=new livreurC();
+if(!empty($_POST["idLivreur"]) && !empty($_POST["telLivreur"]) && !empty($_POST["nom"]) && !empty($_POST["prenom"]) )
 {
-if(isset($_POST["idLivreur"]) && isset($_POST["telLivreur"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) 
-&& isset($_POST["dispo"]) && isset($_POST["Ajouter"]))
+if(isset($_POST["idLivreur"]) && isset($_POST["telLivreur"]) && isset($_POST["nom"]) && isset($_POST["prenom"])  )
 {
     $livreur->idLivreur=$_POST['idLivreur'];
-    $livreur->telLivreur=$_POST['telLivreur'];
+    $livreur->telLivr=$_POST['telLivr'];
     $livreur->nom=$_POST['nom'];
     $livreur->prenom=$_POST['prenom'];
-    $livreur->dispo=$_POST['dispo'];
-    
-    
+    $livreur->dispo=$_POST['disponible'];
    $livreurC->ajouterlivreur($livreur);
 
 }
 }else 
 {
-    
-    $error= " Missing informations ";
+  $error= " Missing informations 78787 ";
+ 
+ 
 }
 
 
@@ -147,9 +144,9 @@ if(isset($_POST["idLivreur"]) && isset($_POST["telLivreur"]) && isset($_POST["no
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="Ajouterlivraisons.html">Ajouterlivraisons</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifierlivraisons.html">modifierlivraisons</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficherlivraisons.html">Consulterlivraisons</a></li>
+              <li class="nav-item"> <a class="nav-link" href="Ajouterlivraisons.php">Ajouterlivraisons</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierlivraisons.php">modifierlivraisons</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherlivraisons.php">Consulterlivraisons</a></li>
             </ul>
           </div>
         </li>
@@ -165,14 +162,46 @@ if(isset($_POST["idLivreur"]) && isset($_POST["telLivreur"]) && isset($_POST["no
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouterPoints relais.html">AjouterPoints relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifierPoints relais.html">ModifierPoints relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficherPoints relais.html">ConsulterPoints relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterPoints relais.php">AjouterPoints relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierPoints relais.php">ModifierPoints relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherPoints relais.php">ConsulterPoints relais</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item menu-items">
+          <a class="nav-link collapsed" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Gestion des livreurs</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic" style="">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="ajouterlivreur.php">Ajouter livreur</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierlivreur.php">Modifier livreur</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherlivreur.php">Consulter livraison</a></li>
             </ul>
           </div>
         </li>
 
 
+        <li class="nav-item menu-items">
+          <a class="nav-link collapsed" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">mail</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic" style="">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="envoyermail.php">envoyer mail</a></li>
+          
+            </ul>
+          </div>
+        </li>
 
 
       </ul>
@@ -349,10 +378,11 @@ if(isset($_POST["idLivreur"]) && isset($_POST["telLivreur"]) && isset($_POST["no
                     <div class="right_col" role="main" >
                       <!-- top tiles -->
                      <table class="table">
-                       
                      <div id="error"> <?php echo "$error"?></div>
+
                     
-                     <form name="formajout" id="formajout" class="form" action="ajouterlivreur.php" method="POST" >
+                    
+                     <form name="formajout" id="formajout" class="form" action="" method="POST" >
                        <tr>
                        <td colspan="2">
                         <input type="hidden" name="photo" >
@@ -362,16 +392,16 @@ if(isset($_POST["idLivreur"]) && isset($_POST["telLivreur"]) && isset($_POST["no
                     
                        <td>id Livreur : </td><td><input type="text" id="idLivreur" name="idLivreur" class="form-control"> </td>
                        </tr>
-                       <tr><td>telLivreur : </td><td><input type="text" id="telLivreur" name="telLivreur"  class="form-control" > </td>
+                       <tr><td>telLivreur : </td><td><input type="text" id="telLivr" name="telLivr"  class="form-control" > </td>
                        </tr>
                         <tr><td>nom : </td><td><input type="text" name="nom" id="nom" class="form-control"  > </td>
                        </tr>
                        <tr><td>prenom : </td><td><input type="text" name="prenom" id="prenom" class="form-control"  > </td>
                        </tr>
-                       <tr><td>dispo : </td><td><input type="text" name="dispo" id="dispo" class="form-control"  > </td>
+                       <tr><td>dispo : </td><td><input type="text" name="disponible" id="disponible" class="form-control"  > </td>
                        </tr>
                        
-                            <td colspan="2">  <button type="submit1" class="form-control" name="Ajouter" >
+                            <td colspan="2">  <button type="submit" class="form-control" name="Ajouter" >
                                                         ajouter
                                                     </button></td>
                         </tr>

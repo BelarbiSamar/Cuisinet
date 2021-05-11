@@ -4,26 +4,25 @@ require_once 'C:\wamp64\www\Cuisinet\model\livreur.php';
 
 class livreurC{
 
-    function ajouterlivreur($livreur){
+    function ajouterlivreur($livreurs){
        
-        $sql="insert into livreur (idLivreur,telLivreur,nom,prenom,dispo)
-        values (:idLivreur,:telLivreur,:nom,:prenom,:dispo)";
+        $sql="insert into Livreur values (:idLivreur,:telLivr,:nom,:prenom,:disponible)";
         $db = config::getConnexion();
         try{
             $query = $db->prepare($sql);
-            $idLivreur=$livreur->getIdLivreur();
-		    $telLivreur=$livreur->geTtelLivreur();
-		    $nom=$livreur->getNom();
-            $prenom=$livreur->getPrenom();
-            $dispo=$livreur->getDispo();
+            $idLivreur=$livreurs->getIdLivreur();
+		    $telLivr=$livreurs->getTelLivreur();
+		    $nom=$livreurs->getNom();
+            $prenom=$livreurs->getPrenom();
+            $disponible=$livreurs->getDispo();
             
 
 
 		$query->bindValue(':idLivreur',$idLivreur);
-		$query->bindValue(':telLivreur',$telLivreur);
+		$query->bindValue(':telLivr',$telLivr);
 		$query->bindValue(':nom',$nom);
 		$query->bindValue(':prenom',$prenom);
-		$query->bindValue(':dispo',$dispo);
+		$query->bindValue(':disponible',$disponible);
 		
         $query->execute();
             
@@ -45,22 +44,22 @@ class livreurC{
     function modifierlivreur($idLivreur){
                   $livreur=new livreur;         
             $sql='UPDATE livreur SET
-            telLivreur = :telLivreur,  nom = :nom,   prenom = :prenom,    dispo = :dispo
+            telLivr = :telLivr,  nom = :nom,   prenom = :prenom,    disponible = :disponible
             WHERE idLivreur = :idLivreur';
 		$db = config::getConnexion();
         try{
             $query = $db->prepare($sql);
             $id=$_POST['idLivreur'];
-		    $cin=$_POST['telLivreur'];
+		    $cin=$_POST['telLivr'];
 		    $nom=$_POST['nom'];
             $prenom=$_POST['prenom'];
-            $email=$_POST['dispo'];
+            $email=$_POST['disponible'];
             
 		$query->bindValue(':idLivreur',$idLivreur);
-		$query->bindValue(':telLivreur',$telLivreur);
+		$query->bindValue(':telLivr',$telLivr);
 		$query->bindValue(':nom',$nom);
 		$query->bindValue(':prenom',$prenom);
-		$query->bindValue(':dispo',$dispo);
+		$query->bindValue(':disponible',$disponible);
 		
 		
         $query->execute();

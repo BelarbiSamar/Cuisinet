@@ -1,20 +1,8 @@
-<!DOCTYPE html>
 <html lang="en"><head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Cuisinette Admin</title>
-  <style type="text/css">
-    .main-panel{
-      padding: 10px;
-      border: 1;
-      margin-left: 40px;
-      margin-right: 40px;
-      background-color: black;
-      margin-top: 40px;
-  
-    }
-    </style>
   <!-- plugins:css -->
   <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
@@ -125,18 +113,49 @@
             <span class="menu-icon">
               <i class="mdi mdi-laptop"></i>
             </span>
-            <span class="menu-title">Gestion des Points relais</span>
+            <span class="menu-title">Gestion des points relais</span>
             <i class="menu-arrow"></i>
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouter_Pointsrelais.html">Ajouter Points relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifier_Pointsrelais.html">Modifier Points relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficher_Pointsrelais.html">Consulter Points relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterpointsrelais.html">Ajouter points relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierpointsrelais.html">Modifier points relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherpointsrelais.html">Consulter points relais</a></li>
             </ul>
           </div>
         </li>
 
+        <li class="nav-item menu-items">
+          <a class="nav-link collapsed" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Gestion des livreurs</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic" style="">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="ajouterlivreur.html">Ajouter livreur</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierlivreur.html">Modifier livreur</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherlivreur.html">Consulter livraison</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link collapsed" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">mail</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic" style="">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="envoyermail.php">envoyer mail</a></li>
+          
+            </ul>
+          </div>
+        </li>
 
 
 
@@ -297,67 +316,20 @@
           </button>
         </div>
       </nav>
-
-<!-- partial -->
-<div class="main-panel">
-  <div class="content-wrapper">
-    <div class="row">
-      <div class="col-12 grid-margin stretch-card">
-        <div class="card corona-gradient-card">
-          <div class="card-body py-0 px-0 px-sm-3">
-            
-          </div>
-        </div>
-      </div>
-    </div>
-    
-              </div>
-
-
-              <div class="right_col" role="main" >
-                <!-- top tiles -->
-               <table class="table">
-                 
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card corona-gradient-card">
+                <div class="card-body py-0 px-0 px-sm-3">
                   
-                 <form class="form" >
-                 <tr>
-                 <td colspan="2">
-                  <input type="hidden" name="photo" >
-                </td>
-               </tr>
-                               
-                 <td>id Livreur : </td><td><input type="text" name="idLivreur" class="form-control" > </td>
-                 </tr>
-                 <tr><td>tel Livreur : </td><td><input type="text" name="telLivreur" class="form-control" > </td>
-                 </tr>
-                  <tr><td>nom : </td><td><input type="text" name="nom" class="form-control"  > </td>
-                 </tr>
-                 <tr><td>prenom : </td><td><input type="text" name="prenom" class="form-control"  > </td>
-                 </tr>
-                 <tr><td>dispo : </td><td><input type="text" name="dispo" class="form-control"  > </td>
-
-                  <tr>
-                      <td colspan="2">  <button type="submit" class="form-control" name="Modifier">
-                                                  modifier
-                                              </button></td>
-                  </tr>
-                 </form>
-                   
-               </table>
-               </div>
-
-
-
-
-
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-
-
-
-
-                    </div>            
+          
+                    </div>
                   </div>
                 </div>
               </div>
@@ -383,7 +355,7 @@
           
           
         
-        
+       
         <!-- partial -->
       
       <!-- main-panel ends -->

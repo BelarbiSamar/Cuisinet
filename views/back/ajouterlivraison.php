@@ -146,9 +146,9 @@ if(!empty($_POST["idLivraison"]) && !empty($_POST["idCommande"]) && !empty($_POS
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="Ajouterlivraisons.html">Ajouterlivraisons</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifierlivraisons.html">modifierlivraisons</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficherlivraisons.html">Consulterlivraisons</a></li>
+              <li class="nav-item"> <a class="nav-link" href="Ajouterlivraisons.php">Ajouterlivraisons</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierlivraisons.php">modifierlivraisons</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherlivraisons.php">Consulterlivraisons</a></li>
             </ul>
           </div>
         </li>
@@ -164,15 +164,47 @@ if(!empty($_POST["idLivraison"]) && !empty($_POST["idCommande"]) && !empty($_POS
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouterPoints relais.html">AjouterPoints relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifierPoints relais.html">ModifierPoints relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficherPoints relais.html">ConsulterPoints relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterPoints relais.php">AjouterPoints relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierPoints relais.php">ModifierPoints relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherPoints relais.php">ConsulterPoints relais</a></li>
             </ul>
           </div>
         </li>
 
 
+        <li class="nav-item menu-items">
+          <a class="nav-link collapsed" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Gestion des livreurs</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic" style="">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="ajouterlivreur.php">Ajouter livreur</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierlivreur.php">Modifier livreur</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherlivreur.php">Consulter livraison</a></li>
+            </ul>
+          </div>
+        </li>
 
+
+        <li class="nav-item menu-items">
+          <a class="nav-link collapsed" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">mail</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic" style="">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="envoyermail.php">envoyer mail</a></li>
+          
+            </ul>
+          </div>
+        </li>
 
 
       </ul>

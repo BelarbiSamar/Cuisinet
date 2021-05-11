@@ -8,16 +8,16 @@ $error = "";
 
 if (
   
-  isset($_POST["idRelais "]) && isset($_POST["recupere"])
+  isset($_POST["idRelais"]) && isset($_POST["recupere"])
 
 ){
 if (
   
-  !empty($_POST["idRelais "]) 
+  !empty($_POST["idRelais"]) 
   
 ) {
 $pointsrelais = new pointsrelais(
-  $_POST["idRelais "],
+  $_POST["idRelais"],
   $_POST["adresseRel"],
 $_POST["etatRel"],
 $_POST["horaire"],
@@ -394,7 +394,7 @@ $error = "Missing information";
            </tr>
             
 
-             <td>idRelais: </td><td><input type="text" name="idRelais  " id="idRelais  " class="form-control"> </td>
+             <td>idRelais: </td><td><input type="text" name="idRelais" id="idRelais" class="form-control"> </td>
              </tr>
              <tr><td>adresseRel : </td><td><input type="text" name="adresseRel" id="adresseRel" class="form-control"  > </td>
              </tr>

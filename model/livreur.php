@@ -3,17 +3,17 @@
 class livreur{
 
     public $idLivreur=null;
-    public $telLivreur=null;
+    public $telLivr=null;
     public $nom=null;
     public $prenom=null;
-    public $dispo=null;
+    public $disponible=null;
 
- function __construct( $idLivreur=null,  $telLivreur=null,  $nom=null,  $prenom=null,  $dispo=null){
+ function __construct( $idLivreur=null,  $telLivr=null,  $nom=null,  $prenom=null,  $disponible=null){
         $this->idLivreur=$idLivreur;
-        $this->telLivreur=$telLivreur;
+        $this->telLivr=$telLivr;
         $this->nom=$nom;
         $this->prenom=$prenom;
-        $this->dispo=$dispo;
+        $this->disponible=$disponible;
         
         }
         
@@ -28,10 +28,10 @@ public function setIdLivreur(int $idLivreur)
      $this->idLivreur=$idLivreur;
 }
 public function getTelLivreur(){
-    return $this->telLivreur;
+    return $this->telLivr;
 }
-public function setTelLivreur(int $telLivreur){
-     $this->telLivreur=$telLivreur;
+public function setTelLivreur(int $telLivr){
+     $this->telLivr=$telLivr;
 }
 public function getNom(){
     return $this->nom;
@@ -46,10 +46,10 @@ public function setPrenom(string $prenom){
      $this->prenom=$prenom;
 }
 public function getDispo(){
-    return $this->dispo;
+    return $this->disponible;
 }
-public function setDispo(string $dispo){
-     $this->dispo=$dispo;
+public function setDispo(string $disponible){
+     $this->disponible=$disponible;
 }
 
 

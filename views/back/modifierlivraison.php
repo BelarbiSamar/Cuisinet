@@ -160,9 +160,9 @@ $error = "Missing information";
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="Ajouterlivraison.html">Ajouter livraison</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifierlivraison.html">modifier livraison</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficherlivraison.html">Consulter livraison</a></li>
+              <li class="nav-item"> <a class="nav-link" href="Ajouterlivraison.php">Ajouter livraison</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierlivraison.php">modifier livraison</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherlivraison.php">Consulter livraison</a></li>
             </ul>
           </div>
         </li>
@@ -178,9 +178,9 @@ $error = "Missing information";
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouter_Pointsrelais.html">Ajouter Points relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifier_Pointsrelais.html">Modifier Points relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficher_Pointsrelais.html">Consulter Points relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouter_Pointsrelais.php">Ajouter Points relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifier_Pointsrelais.php">Modifier Points relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficher_Pointsrelais.php">Consulter Points relais</a></li>
             </ul>
           </div>
         </li>
@@ -195,15 +195,29 @@ $error = "Missing information";
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouterlivreur.html">Ajouter livreur</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifierlivreur.html">Modifier livreur</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficherlivreur.html">Consulter livraison</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterlivreur.php">Ajouter livreur</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierlivreur.php">Modifier livreur</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherlivreur.php">Consulter livraison</a></li>
             </ul>
           </div>
         </li>
 
 
-
+        <li class="nav-item menu-items">
+          <a class="nav-link collapsed" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">mail</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic" style="">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="envoyermail.php">envoyer mail</a></li>
+          
+            </ul>
+          </div>
+        </li>
 
 
 

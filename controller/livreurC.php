@@ -1,5 +1,5 @@
 <?php
-include "C:\wamp64\www\Cuisinet\config.php";
+include 'C:\wamp64\www\Cuisinet\config.php';
 require_once 'C:\wamp64\www\Cuisinet\model\livreur.php';
 
 class livreurC{

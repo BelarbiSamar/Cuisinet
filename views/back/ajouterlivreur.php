@@ -1,14 +1,14 @@
 <?php
 
 include 'C:/wamp64/www/Cuisinet/controller/livreurC.php';
-include_once 'C:/wamp64/www/Cuisinet/model/livreur.php';
+require_once 'C:/wamp64/www/Cuisinet/model/livreur.php';
 
 $error="";
-$livreur=new livreur();
+$livreur =new livreur();
 $livreurC=new livreurC();
-if(!empty($_POST["idLivreur"]) && !empty($_POST["telLivreur"]) && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["disponible"]))
+if(!empty($_POST["idLivreur"]) && !empty($_POST["telLivr"]) && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["disponible"]))
 
-{if(isset($_POST["idLivreur"]) && isset($_POST["telLivreur"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["disponible"]) && isset($_POST["Ajouter"]) )
+{if(isset($_POST["idLivreur"]) && isset($_POST["telLivr"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["disponible"]) && isset($_POST["Ajouter"]) )
 {
     $livreur->idLivreur=$_POST['idLivreur'];
     $livreur->telLivr=$_POST['telLivr'];

@@ -146,9 +146,9 @@ $listepointsrelais=$pointsrelaisC->afficherpointsrelais();
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouter_Pointsrelais.php">Ajouter Points relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifier_Pointsrelais.php">Modifier Points relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficher_Pointsrelais.php">Consulter Points relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterpointsrelais.php">Ajouter Points relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierpointsrelais.php">Modifier Points relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherpointsrelais.php">Consulter Points relais</a></li>
             </ul>
           </div>
         </li>

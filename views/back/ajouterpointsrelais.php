@@ -145,9 +145,9 @@ if(!empty($_POST["idRelais"]) && !empty($_POST["adresseRel"]) && !empty($_POST["
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="Ajouterlivraisons.php">Ajouterlivraisons</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifierlivraisons.php">modifierlivraisons</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficherlivraisons.php">Consulterlivraisons</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterlivraison.php">Ajouterlivraisons</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierlivraison.php">modifierlivraisons</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherlivraison.php">Consulterlivraisons</a></li>
             </ul>
           </div>
         </li>
@@ -163,9 +163,9 @@ if(!empty($_POST["idRelais"]) && !empty($_POST["adresseRel"]) && !empty($_POST["
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouterPoints relais.php">AjouterPoints relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifierPoints relais.php">ModifierPoints relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficherPoints relais.php">ConsulterPoints relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterpointsrelais.php">AjouterPoints relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierpointsrelais.php">ModifierPoints relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherpointsrelais.php">ConsulterPoints relais</a></li>
             </ul>
           </div>
         </li>
@@ -445,24 +445,25 @@ if(!empty($_POST["idRelais"]) && !empty($_POST["adresseRel"]) && !empty($_POST["
   
   <!-- container-scroller -->
   <!-- plugins:js -->
-  <script src="../assets/vendors/js/vendor.bundle.base.js"></script>
+  <script src="assets/vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
-  <script src="../assets/vendors/chart.js/Chart.min.js"></script>
-  <script src="../assets/vendors/progressbar.js/progressbar.min.js"></script>
-  <script src="../assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
-  <script src="../assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-  <script src="../assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+  <script src="assets/vendors/chart.js/Chart.min.js"></script>
+  <script src="assets/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+  <script src="assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
   <!-- End plugin js for this page -->
   <!-- inject:js -->
-  <script src="../assets/js/off-canvas.js"></script>
-  <script src="../assets/js/hoverable-collapse.js"></script>
-  <script src="../assets/js/misc.js"></script>
-  <script src="../assets/js/settings.js"></script>
-  <script src="../assets/js/todolist.js"></script>
+  <script src="assets/js/off-canvas.js"></script>
+  <script src="assets/js/hoverable-collapse.js"></script>
+  <script src="assets/js/misc.js"></script>
+  <script src="assets/js/settings.js"></script>
+  <script src="assets/js/todolist.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page -->
   <script src="assets/js/dashboard.js"></script>
   <!-- End custom js for this page -->
+</html>
 
-</body></html>
+

@@ -93,7 +93,7 @@ $error = "Missing information";
           <div class="profile-desc">
             <div class="profile-pic">
               <div class="count-indicator">
-                <img class="img-xs rounded-circle " src="C:\Users\21622\Desktop\images\samar.JPG" alt="">
+                <img class="img-xs rounded-circle " src="C:\wamp64\www\Cuisinet1\views\back\assets\images" alt="">
                 <span class="count bg-success"></span>
               </div>
               <div class="profile-name">
@@ -160,9 +160,9 @@ $error = "Missing information";
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="Ajouterlivraison.html">Ajouter livraison</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifierlivraison.html">modifier livraison</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficherlivraison.html">Consulter livraison</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterlivraison.php">Ajouter livraison</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierlivraison.php">modifier livraison</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherlivraison.php">Consulter livraison</a></li>
             </ul>
           </div>
         </li>
@@ -178,9 +178,9 @@ $error = "Missing information";
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouter_Pointsrelais.html">Ajouter Points relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifier_Pointsrelais.html">Modifier Points relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficher_Pointsrelais.html">Consulter Points relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterpointsrelais.php">Ajouter Points relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierpointsrelais.php">Modifier Points relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherpointsrelais.php">Consulter Points relais</a></li>
             </ul>
           </div>
         </li>
@@ -195,9 +195,9 @@ $error = "Missing information";
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouterlivreur.html">Ajouter livreur</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifierlivreur.html">Modifier livreur</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficherlivreur.html">Consulter livraison</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterlivreur.php">Ajouter livreur</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierlivreur.php">Modifier livreur</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherlivreur.php">Consulter livraison</a></li>
             </ul>
           </div>
         </li>
@@ -323,7 +323,7 @@ $error = "Missing information";
             <li class="nav-item dropdown">
               <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                 <div class="navbar-profile">
-                  <img class="img-xs rounded-circle" src="C:\Users\21622\Desktop\images\samar.JPG" alt="">
+                  <img class="img-xs rounded-circle" src="C:\wamp64\www\Cuisinet1\views\back\assets\images" alt="">
                   <p class="mb-0 d-none d-sm-block navbar-profile-name">Samar Belarbi</p>
                   <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                 </div>

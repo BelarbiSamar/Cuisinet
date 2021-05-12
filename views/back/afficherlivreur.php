@@ -366,7 +366,9 @@ $listelivreur=$livreurC->afficherlivreur();
                 <form method="GET" action="afficherlivreur.php">
                 <td>
                     <div class="input-group">
-                    <input type="text" class="form-control" onkeyup="myFunction()" placeholder="Search for..." name="chercher" id="myInput">     <span class="input-group-btn">
+
+                    <input type="text" class="form-control" placeholder="Search for..." name="chercher">
+                    <span class="input-group-btn">
                    <button class="btn btn-search" type="submit"><i class="fa fa-search fa-fw"></i> Search</button>
                    </span>
                   </div>
@@ -374,10 +376,10 @@ $listelivreur=$livreurC->afficherlivreur();
                 <td>
                     <select name="champs" class="form-control" style="margin-top: -10px;">
                       <option selected>idLivreur</option>
-                      <option>telLivreur</option>
+                      <option>telLivr</option>
                       <option>nom</option>
                       <option>prenom</option>
-                      <option>dispo</option>
+                      <option>disponible</option>
                                 
                     </select>
                  </td>
@@ -404,10 +406,10 @@ $listelivreur=$livreurC->afficherlivreur();
           <table class="table">
               <thead>
                   <th > idLivreur </th>
-                  <th>telLivreur</th>
+                  <th>telLivr</th>
                   <th >nom</th>
                   <th >prenom</th>
-                  <th >dispo</th>
+                  <th >disponible</th>
                   
                   <th>Operation </th>
               </thead>

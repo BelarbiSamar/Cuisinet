@@ -1,6 +1,6 @@
 <?PHP
 	include 'C:/wamp64/www/Cuisinet1/config.php';
-	require_once 'C:/wamp64/www/Cuisinet1/model/Utilisateur.php';
+	require_once 'C:/wamp64/www/Cuisinet/model/Utilisateur.php';
 
 	class UtilisateurC {
 

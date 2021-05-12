@@ -1,6 +1,6 @@
 <?php
-include "C:/xampp/htdocs/reparation/Cruds/config.php";
-require_once 'C:/xampp/htdocs/reparation/Cruds/model/Reclamation.php';
+include "C:/xampp/htdocs/Taches_Dhia/Cruds/config.php";
+require_once 'C:/xampp/htdocs/Taches_Dhia/Cruds/model/Reclamation.php';
 
 class ReclamationC
 {

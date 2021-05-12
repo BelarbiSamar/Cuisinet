@@ -1,19 +1,20 @@
 <?php
-include 'C:/xampp/htdocs/reparation/Cruds/controller/ReparationC.php';
-require_once 'C:/xampp/htdocs/reparation/Cruds/model/Reparation.php';
+include 'C:/xampp/htdocs/Taches_Dhia/Cruds/controller/ReparationC.php';
+require_once 'C:/xampp/htdocs/Taches_Dhia/Cruds/model/Reparation.php';
 $error = "";
 
 $Reparation = new Reparation();
 $ReparationC = new ReparationC();
 
 
-
-if (isset($_POST["idReparation"]) && isset($_POST["delai_intervention"])) {
-    $Reparation->idReparation = $_POST["idReparation"];
-    $Reparation->delai_intervention = $_POST["delai_intervention"];
-    $ReparationC->ajouterReparation($Reparation);
+if (!empty($_POST["idReparation"]) && !empty($_POST["delai_intervention"])) {
+    if (isset($_POST["idReparation"]) && isset($_POST["delai_intervention"])) {
+        $Reparation->idReparation = $_POST["idReparation"];
+        $Reparation->delai_intervention = $_POST["delai_intervention"];
+        $ReparationC->ajouterReparation($Reparation);
+    }
 } else {
-    $error = " Missing information ";
+    $error = "Missing information";
 }
 
 
@@ -136,8 +137,6 @@ if (isset($_POST["idReparation"]) && isset($_POST["delai_intervention"])) {
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item"> <a class="nav-link" href="ajouter reparation.html">Ajouter
                                     Reparation</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="modifier reparation.html">Modifier
-                                    Reparation</a></li>
                             <li class="nav-item"> <a class="nav-link" href="afficher reparation.html">Consulter
                                     Reparation</a></li>
                         </ul>
@@ -154,8 +153,6 @@ if (isset($_POST["idReparation"]) && isset($_POST["delai_intervention"])) {
                     <div class="collapse" id="ui-basic" style="">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item"> <a class="nav-link" href="ajouter reclamation.html">Ajouter
-                                    Reclamation</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="modifier reclamation.html">Modifier
                                     Reclamation</a></li>
                             <li class="nav-item"> <a class="nav-link" href="afficher reclamation.html">Consulter
                                     Reclamation</a></li>
@@ -333,13 +330,13 @@ if (isset($_POST["idReparation"]) && isset($_POST["delai_intervention"])) {
                         <div id="error">
                             <?php echo $error; ?>
                         </div>
-                        <form class="form" action="" method="POST">
+                        <form name="formajout" class="form" action="" method="POST">
                             <tr>
                                 <td colspan="2">
                                     <input type="hidden" name="photo">
                                 </td>
                             </tr>
-                            <td>Id reparation : </td>
+                            <td>Id : </td>
                             <td><input type="text" name="idReparation" class="form-control"> </td>
                             </tr>
                             <tr>
@@ -347,7 +344,7 @@ if (isset($_POST["idReparation"]) && isset($_POST["delai_intervention"])) {
                                 <td><input type="date" name="delai_intervention" class="form-control"> </td>
                             </tr>
                             <tr>
-                                <td colspan="2"> <button type="submit" class="form-control" name="Ajouter">
+                                <td colspan="2"> <button type="submit" class="form-control" name="Ajouter" onclick="controlRep();">
                                         Ajouter Reparation
                                     </button></td>
                             </tr>
@@ -372,6 +369,7 @@ if (isset($_POST["idReparation"]) && isset($_POST["delai_intervention"])) {
     <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
+    <script src="verif.js"></script>
     <script src="assets/js/off-canvas.js"></script>
     <script src="assets/js/hoverable-collapse.js"></script>
     <script src="assets/js/misc.js"></script>

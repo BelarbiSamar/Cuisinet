@@ -1,20 +1,59 @@
+<?php
+if (isset($_POST['sendmail'])) {
+    require 'C:/xampp/htdocs/Taches_Dhia/Cruds/views/back/phpmailer/PHPMailerAutoload.php';
+    
+    $mail = new PHPMailer;
+
+    //$mail->SMTPDebug = 4;                               // Enable verbose debug output
+
+    $mail->isSMTP();                                      // Set mailer to use SMTP
+    $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->Username = 'mohameddhiabenamar@gmail.com';                 // SMTP username
+    $mail->Password = 'enawahdi1999';                           // SMTP password
+    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, ssl also accepted
+    $mail->Port = 587;                                    // TCP port to connect to
+
+    $mail->setFrom('mohameddhiabenamar@gmail.com', 'mohamed dhia ben amar');
+    $mail->addAddress($_POST['email']);     // Add a recipient
+
+    //$mail->addReplyTo(EMAIL);
+    // print_r($_FILES['file']); exit;
+    for ($i = 0; $i < count($_FILES['file']['tmp_name']); $i++) {
+        $mail->addAttachment($_FILES['file']['tmp_name'][$i], $_FILES['file']['name'][$i]);    // Optional name
+    }
+    $mail->isHTML(true);                                  // Set email format to HTML
+
+    $mail->Subject = $_POST['subject'];
+    $mail->Body    = $_POST['message'];
+    $mail->AltBody = $_POST['message'];
+    if (!$mail->send()) {
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    } else {
+        echo 'Message has been sent';
+    }
+}
+?>
+
+
+
+
+
+
+
+
+
 <html lang="en">
+
 <head>
+
+
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Cuisinette Admin</title>
-    <style type="text/css">
-        .main-panel {
-            padding: 10px;
-            border: 1;
-            margin-left: 40px;
-            margin-right: 40px;
-            background-color: black;
-            margin-top: 40px;
-
-        }
-    </style>
     <!-- plugins:css -->
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
@@ -32,14 +71,14 @@
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 </head>
+
 <body>
     <div class="container-scroller">
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
                 <a class="sidebar-brand brand-logo" href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
-                <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg"
-                        alt="logo"></a>
+                <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo"></a>
             </div>
             <ul class="nav">
                 <li class="nav-item profile">
@@ -50,14 +89,12 @@
                                 <span class="count bg-success"></span>
                             </div>
                             <div class="profile-name">
-                                <h5 class="mb-0 font-weight-normal">Ben Amar Med Dhia</h5>
+                                <h5 class="mb-0 font-weight-normal">Med Dhia Ben Amar</h5>
                                 <span></span>
                             </div>
                         </div>
-                        <a href="#" id="profile-dropdown" data-toggle="dropdown"><i
-                                class="mdi mdi-dots-vertical"></i></a>
-                        <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
-                            aria-labelledby="profile-dropdown">
+                        <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
                             <a href="#" class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
                                     <div class="preview-icon bg-dark rounded-circle">
@@ -104,55 +141,74 @@
                         <span class="menu-title">Dashboard</span>
                     </a>
                 </li>
+
                 <li class="nav-item menu-items">
-                    <a class="nav-link collapsed" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                        aria-controls="ui-basic">
+                    <a class="nav-link collapsed" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                         <span class="menu-icon">
                             <i class="mdi mdi-laptop"></i>
                         </span>
-                        <span class="menu-title">Gestion des Reparation</span>
+                        <span class="menu-title">Gestion des commande</span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="ui-basic" style="">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="ajouter reparation.html">Ajouter
-                                    Reparation</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="afficher reparation.html">Consulter
-                                    Reparation</a></li>
+
+                            <li class="nav-item"> <a class="nav-link" href="afficher commande.php">Consulter commande</a></li>
                         </ul>
                     </div>
                 </li>
+
+
                 <li class="nav-item menu-items">
-                    <a class="nav-link collapsed" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                        aria-controls="ui-basic">
+                    <a class="nav-link collapsed" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                         <span class="menu-icon">
                             <i class="mdi mdi-laptop"></i>
                         </span>
-                        <span class="menu-title">Gestion des Reclamation</span>
+                        <span class="menu-title">Gestion des panier</span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="ui-basic" style="">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="ajouter reclamation.html">Ajouter
-                                    Reclamation</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="afficher reclamation.html">Consulter
-                                    Reclamation</a></li>
+
+                            <li class="nav-item"> <a class="nav-link" href="afficher panier.php">Consulter panier</a></li>
                         </ul>
                     </div>
                 </li>
+
+                <li class="nav-item menu-items">
+                    <a class="nav-link collapsed" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-laptop"></i>
+                        </span>
+                        <span class="menu-title">mail</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="ui-basic" style="">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" href="envoyermail.php">envoyer mail</a></li>
+
+                        </ul>
+                    </div>
+                </li>
+
+
+
             </ul>
+
         </nav>
+
+
+
+
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_navbar.html -->
             <nav class="navbar p-0 fixed-top d-flex flex-row">
                 <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg"
-                            alt="logo"></a>
+                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo"></a>
                 </div>
                 <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-                    <button class="navbar-toggler navbar-toggler align-self-center" type="button"
-                        data-toggle="minimize">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                         <span class="mdi mdi-menu"></span>
                     </button>
 
@@ -164,19 +220,16 @@
                             </a>
                         </li>
                         <li class="nav-item dropdown border-left">
-                            <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#"
-                                data-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                                 <i class="mdi mdi-email"></i>
                                 <span class="count bg-success"></span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                                aria-labelledby="messageDropdown">
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
                                 <h6 class="p-3 mb-0">Messages</h6>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item preview-item">
                                     <div class="preview-thumbnail">
-                                        <img src="assets/images/faces/face4.jpg" alt="image"
-                                            class="rounded-circle profile-pic">
+                                        <img src="assets/images/faces/face4.jpg" alt="image" class="rounded-circle profile-pic">
                                     </div>
                                     <div class="preview-item-content">
                                         <p class="preview-subject ellipsis mb-1">Mark send you a message</p>
@@ -186,8 +239,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item preview-item">
                                     <div class="preview-thumbnail">
-                                        <img src="assets/images/faces/face2.jpg" alt="image"
-                                            class="rounded-circle profile-pic">
+                                        <img src="assets/images/faces/face2.jpg" alt="image" class="rounded-circle profile-pic">
                                     </div>
                                     <div class="preview-item-content">
                                         <p class="preview-subject ellipsis mb-1">Cregh send you a message</p>
@@ -197,8 +249,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item preview-item">
                                     <div class="preview-thumbnail">
-                                        <img src="assets/images/faces/face3.jpg" alt="image"
-                                            class="rounded-circle profile-pic">
+                                        <img src="assets/images/faces/face3.jpg" alt="image" class="rounded-circle profile-pic">
                                     </div>
                                     <div class="preview-item-content">
                                         <p class="preview-subject ellipsis mb-1">Profile picture updated</p>
@@ -210,13 +261,11 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown border-left">
-                            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
-                                data-toggle="dropdown">
+                            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
                                 <i class="mdi mdi-bell"></i>
                                 <span class="count bg-danger"></span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                                aria-labelledby="notificationDropdown">
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
                                 <h6 class="p-3 mb-0">Notifications</h6>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item preview-item">
@@ -227,8 +276,7 @@
                                     </div>
                                     <div class="preview-item-content">
                                         <p class="preview-subject mb-1">Event today</p>
-                                        <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event
-                                            today </p>
+                                        <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event today </p>
                                     </div>
                                 </a>
                                 <div class="dropdown-divider"></div>
@@ -263,12 +311,11 @@
                             <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                                 <div class="navbar-profile">
                                     <img class="img-xs rounded-circle" src="assets/images/faces/face15.jpg" alt="">
-                                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Ben Amar Med Dhia</p>
+                                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Med Dhia Ben Amar</p>
                                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                                 </div>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                                aria-labelledby="profileDropdown">
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
                                 <h6 class="p-3 mb-0">Profile</h6>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item preview-item">
@@ -297,8 +344,7 @@
                             </div>
                         </li>
                     </ul>
-                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-                        data-toggle="offcanvas">
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                         <span class="mdi mdi-format-line-spacing"></span>
                     </button>
                 </div>
@@ -314,41 +360,94 @@
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
-                </div>
-                <div class="right_col" role="main">
-                    <!-- top tiles -->
-                    <table class="table">
-                        <div id="error">
-                            <?php echo $error; ?>
+                    <form role="form" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-sm-9 form-group">
+                                <label for="email">To Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" maxlength="50">
+                            </div>
                         </div>
-                        <form name="formajout" class="form" action="" method="POST">
-                            <tr>
-                                <td colspan="2">
-                                    <input type="hidden" name="photo">
-                                </td>
-                            </tr>
-                            <td>Id : </td>
-                            <td><input type="text" name="idReparation" class="form-control"> </td>
-                            </tr>
-                            <tr>
-                                <td>Delai Intervent : </td>
-                                <td><input type="text" name="delai_intervention " class="form-control"> </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"> <button type="submit" class="form-control" name="Ajouter" onclick="controlRep();">
-                                        Ajouter Reparation
-                                    </button></td>
-                            </tr>
-                        </form>
-                    </table>
+
+                        <div class="row">
+                            <div class="col-sm-9 form-group">
+                                <label for="subject">Subject:</label>
+                                <input type="text" class="form-control" id="subject" name="subject" value="Test Mail with attachments" maxlength="50">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-9 form-group">
+                                <label for="name">Message:</label>
+                                <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Your Message Here" maxlength="6000" rows="4">Test mail using PHPMailer</textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-9 form-group">
+                                <label for="name">File:</label>
+                                <input name="file[]" multiple="multiple" class="form-control" type="file" id="file">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-9 form-group">
+                                <button type="submit" name="sendmail" class="form-control">Send</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- partial -->
+
     <!-- main-panel ends -->
+
     <!-- page-body-wrapper ends -->
+
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
@@ -361,7 +460,6 @@
     <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="verif.js"></script>
     <script src="assets/js/off-canvas.js"></script>
     <script src="assets/js/hoverable-collapse.js"></script>
     <script src="assets/js/misc.js"></script>
@@ -371,6 +469,8 @@
     <!-- Custom js for this page -->
     <script src="assets/js/dashboard.js"></script>
     <!-- End custom js for this page -->
+
     <div class="jvectormap-tip"></div>
 </body>
+
 </html>

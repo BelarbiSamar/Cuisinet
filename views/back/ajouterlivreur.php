@@ -6,9 +6,9 @@ include_once 'C:/wamp64/www/Cuisinet/model/livreur.php';
 $error="";
 $livreur=new livreur();
 $livreurC=new livreurC();
-if(!empty($_POST["idLivreur"]) && !empty($_POST["telLivreur"]) && !empty($_POST["nom"]) && !empty($_POST["prenom"]) )
-{
-if(isset($_POST["idLivreur"]) && isset($_POST["telLivreur"]) && isset($_POST["nom"]) && isset($_POST["prenom"])  )
+if(!empty($_POST["idLivreur"]) && !empty($_POST["telLivreur"]) && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["disponible"]))
+
+{if(isset($_POST["idLivreur"]) && isset($_POST["telLivreur"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["disponible"]) && isset($_POST["Ajouter"]) )
 {
     $livreur->idLivreur=$_POST['idLivreur'];
     $livreur->telLivr=$_POST['telLivr'];
@@ -20,7 +20,7 @@ if(isset($_POST["idLivreur"]) && isset($_POST["telLivreur"]) && isset($_POST["no
 }
 }else 
 {
-  $error= " Missing informations 78787 ";
+  $error= " Missing informations  ";
  
  
 }
@@ -144,9 +144,9 @@ if(isset($_POST["idLivreur"]) && isset($_POST["telLivreur"]) && isset($_POST["no
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouterlivraisons.php">Ajouterlivraisons</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifierlivraisons.php">modifierlivraisons</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficherlivraisons.php">Consulterlivraisons</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterlivraison.php">Ajouterlivraisons</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierlivraison.php">modifierlivraisons</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherlivraison.php">Consulterlivraisons</a></li>
             </ul>
           </div>
         </li>
@@ -162,9 +162,9 @@ if(isset($_POST["idLivreur"]) && isset($_POST["telLivreur"]) && isset($_POST["no
           </a>
           <div class="collapse" id="ui-basic" style="">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="ajouterPoints relais.php">AjouterPoints relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="modifierPoints relais.php">ModifierPoints relais</a></li>
-              <li class="nav-item"> <a class="nav-link" href="afficherPoints relais.php">ConsulterPoints relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ajouterpointsrelais.php">AjouterPoints relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="modifierpointsrelais.php">ModifierPoints relais</a></li>
+              <li class="nav-item"> <a class="nav-link" href="afficherpointsrelais.php">ConsulterPoints relais</a></li>
             </ul>
           </div>
         </li>

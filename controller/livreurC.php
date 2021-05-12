@@ -4,17 +4,18 @@ require_once 'C:\wamp64\www\Cuisinet\model\livreur.php';
 
 class livreurC{
 
-    function ajouterlivreur($livreurs){
+    function ajouterlivreur($livreur){
        
-        $sql="insert into Livreur values (:idLivreur,:telLivr,:nom,:prenom,:disponible)";
+        $sql="insert into livreur values (:idLivreur,:telLivr,:nom,:prenom,:disponible)
+        values (:idLivreur,:telLivr,:nom,:prenom,:disponible)";
         $db = config::getConnexion();
         try{
             $query = $db->prepare($sql);
-            $idLivreur=$livreurs->getIdLivreur();
-		    $telLivr=$livreurs->getTelLivreur();
-		    $nom=$livreurs->getNom();
-            $prenom=$livreurs->getPrenom();
-            $disponible=$livreurs->getDispo();
+            $idLivreur=$livreur->getIdLivreur();
+		    $telLivr=$livreur->getTelLivreur();
+		    $nom=$livreur->getNom();
+            $prenom=$livreur->getPrenom();
+            $disponible=$livreur->getDispo();
             
 
 

@@ -409,7 +409,7 @@ if(!empty($_POST["idRelais"]) && !empty($_POST["adresseRel"]) && !empty($_POST["
                                           </button></td>
               </tr>
               <tr>
-                  <td colspan="2">  <button type="submit" class="form-control" name="verif" >
+                  <td colspan="2">  <button type="submit" class="form-control" name="verif" onclick="test()">
                                               vérifier les données
                                           </button></td>
               </tr>
@@ -455,6 +455,7 @@ if(!empty($_POST["idRelais"]) && !empty($_POST["adresseRel"]) && !empty($_POST["
   <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
   <!-- End plugin js for this page -->
   <!-- inject:js -->
+  <script src="verif2.js"></script>
   <script src="assets/js/off-canvas.js"></script>
   <script src="assets/js/hoverable-collapse.js"></script>
   <script src="assets/js/misc.js"></script>

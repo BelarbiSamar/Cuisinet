@@ -7,13 +7,14 @@ $Recette = new Recette();
 $RecetteC = new RecetteC();
 
 
-
+if (!empty($_POST["id"]) && !empty($_POST["type"]) && !empty($_POST["nomC"]) && !empty($_POST["desc"])) {
 if (isset($_POST["id"]) && isset($_POST["type"]) && isset($_POST["nomC"]) && isset($_POST["desc"])) {
     $Recette->idRecette = $_POST["id"];
     $Recette->type = $_POST["type"];
     $Recette->nomChef = $_POST["nomC"];
     $Recette->description = $_POST["desc"];
     $RecetteC->ajouterRecette($Recette);
+} 
 } else {
     $error = " Missing information ";
 }
@@ -329,7 +330,7 @@ if (isset($_POST["id"]) && isset($_POST["type"]) && isset($_POST["nomC"]) && iss
                         <table class="table">
 
 
-                            <form class="form" method="post">
+                            <form name="formajout" class="form" action="" method="POST">
                                 <tr>
                                     <td colspan="2">
                                         <input type="hidden" name="photo">
@@ -355,7 +356,7 @@ if (isset($_POST["id"]) && isset($_POST["type"]) && isset($_POST["nomC"]) && iss
 
 
                                 <tr>
-                                    <td colspan="2"> <button type="submit" class="form-control" name="Ajouter">
+                                    <td colspan="2"> <button type="submit" class="form-control" name="Ajouter" onclick="controlRec();">
                                             ajouter
                                         </button></td>
                                 </tr>
@@ -401,6 +402,7 @@ if (isset($_POST["id"]) && isset($_POST["type"]) && isset($_POST["nomC"]) && iss
     <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
+    <script src="verif.js"></script>
     <script src="assets/js/off-canvas.js"></script>
     <script src="assets/js/hoverable-collapse.js"></script>
     <script src="assets/js/misc.js"></script>

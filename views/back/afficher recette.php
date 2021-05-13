@@ -341,7 +341,6 @@
                                     </td>
                                 </form>
                             </tr>
-                            </tabxle>
 
                             <?PHP
                             $servername = "localhost";
@@ -373,8 +372,9 @@
 
                             ?>
                             </tr>
+                            </table>
                     </div>
-
+                    <button onclick="downloadPDFWithBrowserPrint()" class="btn btn-success">Imprimer ou sauvegarder en PDF</button>
                 </div>
             </div>
         </div>
@@ -493,6 +493,12 @@
             }
         }
     </script>
+    <script>
+		function downloadPDFWithBrowserPrint() {
+			window.print();
+		}
+		document.querySelector('#browserPrint').addEventListener('click', downloadPDFWithBrowserPrint);
+	</script>
     <script src="assets/js/off-canvas.js"></script>
     <script src="assets/js/hoverable-collapse.js"></script>
     <script src="assets/js/misc.js"></script>

@@ -5,15 +5,15 @@ require_once 'C:/xampp/htdocs/Mariem/model/event.php';
 $Event = new Evenement();
 $EventC = new EventC();
 
-if(isset($_POST["idEvent"]))
-{//$Event = new Event($_POST["idEvent"], $_POST["dd"], $_POST["df"],$_POST["partenaire"],$_POST["prime"]);
+if (!empty($_POST["idEvent"]) && !empty($_POST["partenaire"]) && !empty($_POST["prime"]) && !empty($_POST["dd"]) && !empty($_POST["df"])) {
+if(isset($_POST["idEvent"])) {
 $Event->idEvent= $_POST["idEvent"];
 $Event->partenaire= $_POST["partenaire"];
 $Event->prime=$_POST["prime"];
 $Event->dd=$_POST["dd"];
 $Event->df=$_POST["df"];
 $EventC->ajouterEvent($Event);
-}
+} }
 
 ?>
 
@@ -340,7 +340,7 @@ $EventC->ajouterEvent($Event);
                     <table class="table">
                        
 
-                        <form class="form" action="ajouter event.php" method="POST">
+                    <form name="formajout" class="form" action="" method="POST">
 
 
                             <td>Id : </td>
@@ -364,7 +364,7 @@ $EventC->ajouterEvent($Event);
                             </tr>
 
                             <tr>
-                                <td colspan="2"> <button type="submit" class="form-control" name="Ajouter">
+                                <td colspan="2"> <button type="submit" class="form-control" name="Ajouter" onclick="controlEv();">
                                         Ajouter
                                     </button></td>
                             </tr>
@@ -393,6 +393,7 @@ $EventC->ajouterEvent($Event);
     <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
+    <script src="verif2.js"></script>
     <script src="assets/js/off-canvas.js"></script>
     <script src="assets/js/hoverable-collapse.js"></script>
     <script src="assets/js/misc.js"></script>

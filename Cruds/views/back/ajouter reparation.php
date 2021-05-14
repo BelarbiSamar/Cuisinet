@@ -133,7 +133,7 @@ if (!empty($_POST["idReparation"]) && !empty($_POST["delai_intervention"])) {
                         <span class="menu-title">Gestion des Reparation</span>
                         <i class="menu-arrow"></i>
                     </a>
-                    <div class="collapse" id="ui-basic" style="">
+                    <div class="collapse" id="ui-basic">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item"> <a class="nav-link" href="ajouter reparation.php">Ajouter
                                     Reparation</a></li>
@@ -150,7 +150,7 @@ if (!empty($_POST["idReparation"]) && !empty($_POST["delai_intervention"])) {
                         <span class="menu-title">Gestion des Reclamation</span>
                         <i class="menu-arrow"></i>
                     </a>
-                    <div class="collapse" id="ui-basic" style="">
+                    <div class="collapse" id="ui-basic">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item"> <a class="nav-link" href="ajouter reclamation.php">Ajouter
                                     Reclamation</a></li>
@@ -168,7 +168,7 @@ if (!empty($_POST["idReparation"]) && !empty($_POST["delai_intervention"])) {
             <span class="menu-title">mail</span>
             <i class="menu-arrow"></i>
           </a>
-          <div class="collapse" id="ui-basic" style="">
+          <div class="collapse" id="ui-basic">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item">
                 <a class="nav-link" href="envoyermail.php">envoyer mail</a>

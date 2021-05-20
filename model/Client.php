@@ -9,8 +9,9 @@ class Client{
     public $email=null;
     public $adresse=null;
     public $dateNaiss=null;
+    public $password=null;
 
- function __construct( $id=null,  $cin=null,  $nom=null,  $prenom=null,  $email=null,  $adresse=null,  $dateNaiss=null){
+ function __construct( $id=null,  $cin=null,  $nom=null,  $prenom=null,  $email=null,  $adresse=null,  $dateNaiss=null , $password=null){
         $this->id=$id;
         $this->cin=$cin;
         $this->nom=$nom;
@@ -18,8 +19,20 @@ class Client{
         $this->email=$email;
         $this->adresse=$adresse;
         $this->dateNaiss=$dateNaiss;
+        $this->password=$password;
         }
+     
         
+        public function getPassword() 
+        {
+            return $this->password;
+        }
+        public function setPassword(int $password)
+        {
+             $this->password=$password;
+        }
+
+
 
 
 public function getId() 

@@ -6,8 +6,8 @@ class ClientC{
 
     function ajouterClient($clients){
        
-        $sql="insert into Clients (id,cin,nom,prenom,email,adresse,dateNaiss)
-        values (:id,:cin,:nom,:prenom,:email,:adresse,:dateNaiss)";
+        $sql="insert into Clients (id,cin,nom,prenom,email,adresse,dateNaiss,password)
+        values (:id,:cin,:nom,:prenom,:email,:adresse,:dateNaiss,:password)";
         $db = config::getConnexion();
         try{
             $query = $db->prepare($sql);
@@ -18,6 +18,8 @@ class ClientC{
             $email=$clients->getEmail();
             $adresse=$clients->getAdresse();
             $dateNaiss=$clients->getDateNaiss();
+            $password=$clients->getPassword();
+
 
 
 
@@ -28,6 +30,7 @@ class ClientC{
 		$query->bindValue(':email',$email);
 		$query->bindValue(':adresse',$adresse);
 		$query->bindValue(':dateNaiss',$dateNaiss);
+        $query->bindValue(':password',$password);
 		
         $query->execute();
             
@@ -50,7 +53,7 @@ class ClientC{
                   $clients=new Client;         
             $sql='UPDATE Clients SET
             cin = :cin,  nom = :nom,   prenom = :prenom,    email = :email,     adresse = :adresse,
-            dateNaiss = :dateNaiss
+            dateNaiss = :dateNaiss , password =: password
             WHERE id = :id';
 		$db = config::getConnexion();
         try{
@@ -62,6 +65,7 @@ class ClientC{
             $email=$_POST['email'];
             $adresse=$_POST['adresse'];
             $dateNaiss=$_POST['dateNaiss'];
+            $password=$_POST['password'];
 		$query->bindValue(':id',$id);
 		$query->bindValue(':cin',$cin);
 		$query->bindValue(':nom',$nom);
@@ -69,7 +73,7 @@ class ClientC{
 		$query->bindValue(':email',$email);
 		$query->bindValue(':adresse',$adresse);
 		$query->bindValue(':dateNaiss',$dateNaiss);
-		
+		$query->bindValue(':password',$password);
         $query->execute();
         } catch (PDOException $e) {
         $e->getMessage();
